@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dash Buck Application for Recurse - Sudoku</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Dash Buck Application for Recurse</h1>
+    <p><em>Prepared October 2023</em></p>
+    </header>
+    <nav><ul>
+        <li><a href="index.html">Back</a></li>
+      </ul></nav>
+<section id="main">
+
+<h1>Sudoku Solution Generator</h1>
+<p>The first step to making a sudoku puzzle is creating its solution. While this generator can't yet make a puzzle (yet!), it <em>can</em> create valid sudoku puzzle solutions.</p>
+<article id="sudoku">
+        <p id="patience" class="msg">Please be patient, it can take a while to generate a puzzle.</p>
+        
+        <div id="playfield">
+            <div id="sudokugrid">
+                <div id="ne" class="box">
+                    <div class="row row1">
+                        <span id="row1col1" class="square">&nbsp;</span>
+                        <span id="row1col2" class="square">&nbsp;</span>
+                        <span id="row1col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row2">
+                        <span id="row2col1" class="square">&nbsp;</span>
+                        <span id="row2col2" class="square">&nbsp;</span>
+                        <span id="row2col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row3">
+                        <span id="row3col1" class="square">&nbsp;</span>
+                        <span id="row3col2" class="square">&nbsp;</span>
+                        <span id="row3col3" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="nc" class="box">
+                    <div class="row row1">
+                        <span id="row1col4" class="square">&nbsp;</span>
+                        <span id="row1col5" class="square">&nbsp;</span>
+                        <span id="row1col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row2">
+                        <span id="row2col4" class="square">&nbsp;</span>
+                        <span id="row2col5" class="square">&nbsp;</span>
+                        <span id="row2col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row3">
+                        <span id="row3col4" class="square">&nbsp;</span>
+                        <span id="row3col5" class="square">&nbsp;</span>
+                        <span id="row3col6" class="square">&nbsp;</span>
+                    </div>  
+                </div>
+                <div id="nw" class="box">
+                    <div class="row row1">
+                        <span id="row1col7" class="square">&nbsp;</span>
+                        <span id="row1col8" class="square">&nbsp;</span>
+                        <span id="row1col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row2">
+                        <span id="row2col7" class="square">&nbsp;</span>
+                        <span id="row2col8" class="square">&nbsp;</span>
+                        <span id="row2col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row3">
+                        <span id="row3col7" class="square">&nbsp;</span>
+                        <span id="row3col8" class="square">&nbsp;</span>
+                        <span id="row3col9" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="ce" class="box">
+                    <div class="row row4">
+                        <span id="row4col1" class="square">&nbsp;</span>
+                        <span id="row4col2" class="square">&nbsp;</span>
+                        <span id="row4col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row5">
+                        <span id="row5col1" class="square">&nbsp;</span>
+                        <span id="row5col2" class="square">&nbsp;</span>
+                        <span id="row5col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row6">
+                        <span id="row6col1" class="square">&nbsp;</span>
+                        <span id="row6col2" class="square">&nbsp;</span>
+                        <span id="row6col3" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="cc" class="box">
+                    <div class="row row4">
+                        <span id="row4col4" class="square">&nbsp;</span>
+                        <span id="row4col5" class="square">&nbsp;</span>
+                        <span id="row4col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row5">
+                        <span id="row5col4" class="square">&nbsp;</span>
+                        <span id="row5col5" class="square">&nbsp;</span>
+                        <span id="row5col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row6">
+                        <span id="row6col4" class="square">&nbsp;</span>
+                        <span id="row6col5" class="square">&nbsp;</span>
+                        <span id="row6col6" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="cw" class="box">
+                    <div class="row row4">
+                        <span id="row4col7" class="square">&nbsp;</span>
+                        <span id="row4col8" class="square">&nbsp;</span>
+                        <span id="row4col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row5">
+                        <span id="row5col7" class="square">&nbsp;</span>
+                        <span id="row5col8" class="square">&nbsp;</span>
+                        <span id="row5col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row6">
+                        <span id="row6col7" class="square">&nbsp;</span>
+                        <span id="row6col8" class="square">&nbsp;</span>
+                        <span id="row6col9" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="se" class="box">
+                    <div class="row row7">
+                        <span id="row7col1" class="square">&nbsp;</span>
+                        <span id="row7col2" class="square">&nbsp;</span>
+                        <span id="row7col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row8">
+                        <span id="row8col1" class="square">&nbsp;</span>
+                        <span id="row8col2" class="square">&nbsp;</span>
+                        <span id="row8col3" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row9">
+                        <span id="row9col1" class="square">&nbsp;</span>
+                        <span id="row9col2" class="square">&nbsp;</span>
+                        <span id="row9col3" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="sc" class="box">
+                    <div class="row row7">
+                        <span id="row7col4" class="square">&nbsp;</span>
+                        <span id="row7col5" class="square">&nbsp;</span>
+                        <span id="row7col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row8">
+                        <span id="row8col4" class="square">&nbsp;</span>
+                        <span id="row8col5" class="square">&nbsp;</span>
+                        <span id="row8col6" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row9">
+                        <span id="row9col4" class="square">&nbsp;</span>
+                        <span id="row9col5" class="square">&nbsp;</span>
+                        <span id="row9col6" class="square">&nbsp;</span>
+                    </div>
+                </div>
+                <div id="sw" class="box">
+                    <div class="row row7">
+                        <span id="row7col7" class="square">&nbsp;</span>
+                        <span id="row7col8" class="square">&nbsp;</span>
+                        <span id="row7col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row8">
+                        <span id="row8col7" class="square">&nbsp;</span>
+                        <span id="row8col8" class="square">&nbsp;</span>
+                        <span id="row8col9" class="square">&nbsp;</span>
+                    </div>
+                    <div class="row row9">
+                        <span id="row9col7" class="square">&nbsp;</span>
+                        <span id="row9col8" class="square">&nbsp;</span>
+                        <span id="row9col9" class="square">&nbsp;</span>
+                    </div>
+                </div>
+            </div> <!--grid-->
+            <button onClick="window.location.reload();">Try again</button>
+        </div>
+        
+    
+</article>
+
+</body>
+<script type="text/javascript" src="js/sudoku.js"></script>
+</html>
